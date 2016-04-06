@@ -3,28 +3,33 @@ import rp from 'request-promise';
 import ballparks from '../../data/ballparks.json';
 import DBpediaService from './dbpedia.service';
 
+const _ballparksCache = [];
 class BallparksService {
   all() {
-    return Rx.Observable.from(ballparks);
-  }
-
-  allWithDetails() {
-    return this
-      .all()
-      .concatMap(park => {
-        return BallparksService
+    // TODO cache the Rx way - clear it every day hour
+    if (_ballparksCache.length > 0) {
+      return Rx.Observable.from(_ballparksCache);
+    }
+    return Rx.Observable
+      .from(ballparks)
+      .concatMap(park =>
+        BallparksService
           ._withDetail(park.name)
           .map(r => {
             return {
               ...park,
               ...r
             };
-          });
-      });
+          }))
+      .do(park => _ballparksCache.push(park));
   }
 
   byId(id) {
-    return this.all()
+    const $ballparks = _ballparksCache.length > 0 ?
+      Rx.Observable.from(_ballparksCache) :
+      this.all();
+
+    return $ballparks
       .toArray()
       .map(ballparks => ballparks[Number.parseInt(id)-1]);
   }

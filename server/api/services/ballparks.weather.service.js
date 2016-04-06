@@ -9,7 +9,13 @@ class BallparksWeatherService {
 
   all() {
     return BallparksService
-      .allWithDetails()
+      .all()
+      .map(park => ({ ...park, weather: _cache[park.id] }));
+  }
+
+  byId(id) {
+    return BallparksService
+      .byId()
       .map(park => ({ ...park, weather: _cache[park.id] }));
   }
 
