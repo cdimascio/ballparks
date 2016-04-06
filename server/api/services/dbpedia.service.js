@@ -1,5 +1,6 @@
 import Rx from 'rx';
 import rp from 'request-promise';
+import dps from 'dbpedia-sparql-client';
 
 class DBpediaService {
   search({
@@ -10,16 +11,26 @@ class DBpediaService {
     const qs = {
       QueryClass: qclass || 'stadium',
       QueryString: query,
-      format: 'json',
       MaxHits: limit || 5
     };
     //http://lookup.dbpedia.org/api/search.asmx/KeywordSearch?QueryClass=stadium&QueryString=CHICAGO&MaxHits=5
     return Rx.Observable.fromPromise(rp({
       method: 'GET',
       uri: 'http://lookup.dbpedia.org/api/search.asmx/KeywordSearch',
+      headers: {
+        Accept: 'application/json'
+      },
       qs,
       json: true
     }));
+  }
+
+  sparql(query) {
+    //var query = 'SELECT DISTINCT ?Concept WHERE {[] a ?Concept} LIMIT 10';
+    return Rx.Observable.fromPromise(dps
+      .client()
+      .query(query)
+      .asJson());
   }
 }
 

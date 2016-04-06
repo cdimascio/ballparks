@@ -10,6 +10,7 @@ class Environment {
       logger: {
         level: env.LOG_LEVEL || 'debug'
       },
+      nodeEnv: process.env.NODE_ENV
     };
   }
 }

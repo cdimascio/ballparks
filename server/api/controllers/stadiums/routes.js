@@ -8,7 +8,6 @@ class StadiumsRoutes {
   }
 
   init() {
-    this._router.get('/test', this._ec.stadiums);
     this._router.get('/ballparks', this._ec.ballparks);
     this._router.get('/ballparks/search', this._ec.search);
     this._router.get('/ballparks/:id', this._ec.ballpark);

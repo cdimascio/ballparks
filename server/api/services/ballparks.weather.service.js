@@ -4,17 +4,20 @@ import WeatherService from '../services/weather.service';
 
 const INTERVAL = 1000 * 60 * 60;
 
-const _cache = new Map();
+const _cache = {};
 class BallparksWeatherService {
+
+  all() {
+    return BallparksService
+      .allWithDetails()
+      .map(park => ({ ...park, weather: _cache[park.id] }));
+  }
+
   start() {
     return Rx.Observable
       .timer(0, INTERVAL)
       .flatMap(() => this._fakedata());
       //.flatMap(() => this._update());
-  }
-
-  get cache() {
-    return Rx.Observable.from(_cache);
   }
 
   _update() {
@@ -30,7 +33,7 @@ class BallparksWeatherService {
         })
         .do(x => {
           console.log(`${park.id}`,x);
-          _cache.set(park.id, x);
+          _cache[park.id]= x;
         });
       });
   }
@@ -114,7 +117,7 @@ class BallparksWeatherService {
       .all()
       .map(park => {
         const data = fakeData;
-        _cache.set(park.id, data);
+        _cache[park.id] = fakeData;
         return {
           ...park,
           weather: data
