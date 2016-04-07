@@ -12,15 +12,16 @@ class BallparksService {
     }
     return Rx.Observable
       .from(ballparks)
-      .concatMap(park =>
-        BallparksService
+      .concatMap(park => {
+        return BallparksService
           ._withDetail(park.name)
           .map(r => {
             return {
               ...park,
               ...r
             };
-          }))
+          });
+      })
       .do(park => _ballparksCache.push(park));
   }
 
@@ -41,7 +42,7 @@ class BallparksService {
       PREFIX d: <http://dbpedia.org/ontology/>
 
       SELECT ?name ?thumb ?description ?openingDate WHERE {
-              ?park rdfs:label "AT&T Park"@en ;
+              ?park rdfs:label "${name}"@en ;
                     d:thumbnail ?thumb ;
                     d:abstract ?description ;
                     foaf:isPrimaryTopicOf ?name ;

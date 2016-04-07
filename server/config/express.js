@@ -50,9 +50,11 @@ class Express {
       }));
     })();
 
+    app.use(express.static(config.root + '/client/static'));
+
     var path = require('path');
     app.get('/', function(req, res) {
-      res.sendFile(path.resolve(__dirname + '/../../client/index.html'));
+      res.sendFile(path.resolve(config.root +'/client/index.html'));
     });
   }
 }

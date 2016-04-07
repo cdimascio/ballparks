@@ -9,7 +9,7 @@ module.exports = {
     //'webpack-hot-middleware/client',//?path=/__webpack_hmr&timeout=20000',
     'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
     // And then the actual application
-    './client/src/index.js'
+    './client/src/index'
   ],
   output: {
     //path: path.join(__dirname, 'client/dist'),
@@ -23,6 +23,14 @@ module.exports = {
       test: /\.js?/,
       loaders: ['babel'],
       include: path.join(__dirname, 'client/src')
+    },
+    {
+      test: /\.scss?/,
+      loaders: ['style', 'css', 'sass']
+    },
+    {
+      test: /\.css$/,
+      loaders: ['style', 'css' ]
     }]
   },
   plugins: [
