@@ -15,7 +15,7 @@ const Cards = ({
     <div className="card-container">
       {
         parks.map(park =>
-          <Card width={350} height={600}
+          <Card key={park.name} width={350} height={600}
                 front={<ParkCardFront park={park} imageHeight={300} width={350} height={600} />}
                 back={<ParkCardBack  park={park} imageHeight={300} width={350} height={600} />}
           ></Card>)

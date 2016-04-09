@@ -1,4 +1,6 @@
 import React from 'react';
+import Tabs from '../tabs/tabs';
+import Tab from '../tab/tab';
 import './back.css';
 
 const extractNameFromLink = url => {
@@ -22,20 +24,25 @@ const ParkCardBack = ({
   }) => {
   return (
     <div className="park-card-back-container" style={{height: `${height - 20}px`}}>
-      <div>
-      <h4>Links</h4>
-      {
-        park.links
-          .filter(filterLinks)
-          .map(link => (
-            <div><a href={`${link}`}>{extractNameFromLink(link)}</a></div>
-          ))
-      }
-      </div>
-      <div className="park-card-back-description-container">
-        <h4>About</h4>
-        {park.description}
-      </div>
+      <Tabs>
+        <Tab title={'About'} selected={true}>
+          <div className="park-card-back-description-container">
+            {park.description}
+          </div>
+        </Tab>
+        <Tab title={'Links'} selected={false}>
+          <div>
+            <h4>Links</h4>
+            {
+              park.links
+                .filter(filterLinks)
+                .map(link => (
+                  <div key={link}><a href={`${link}`}>{extractNameFromLink(link)}</a></div>
+                ))
+            }
+          </div>
+        </Tab>
+      </Tabs>
     </div>
   );
 };

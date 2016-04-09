@@ -1,0 +1,11 @@
+.tabs-container {
+    display: flex;
+}
+.tabs-button {
+    padding: 10px;
+}
+
+.tabs-button.active {
+    background-color: #333;
+    padding: 10px;
+}
