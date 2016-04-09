@@ -1,0 +1,15 @@
+.park-card-back-container {
+    margin: 10px 0 10px 10px;
+    color: #fff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    overflow: scroll;
+}
+
+.park-card-back-description-container {
+    margin: 5px 15px 5px 5px;
+    text-align: justify;
+    color: lightgray;
+}
+

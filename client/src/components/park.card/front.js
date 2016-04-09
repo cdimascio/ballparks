@@ -1,5 +1,4 @@
 import React from 'react';
-import Card from '../card/card';
 import './front.css';
 
 const ParkCardFront = ({
@@ -23,7 +22,7 @@ const ParkCardFront = ({
         <h4 className="name">{park.name}</h4>
       </div>
       <div style={{height: `${dHeight}px`}}>
-        <div className="description" style={{height: `${dHeight - 90}px`}}>{park.description}</div>
+        <div className="description" style={{height: `${dHeight - 90}px`}}>{park.comment}</div>
         <div className="weather-container">
           <div className="weather-top">
             <div className="weather-image">

@@ -3,7 +3,6 @@
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-
     background-color: #fff;
 }
 .name {
@@ -16,16 +15,12 @@
     padding: 5px 10px;
     text-align: center;
     font-family: 'Helvetica Neue';
-    /*border-top: 1px solid #000;*/
-    /*border-bottom: 1px solid #000;*/
-    /*border-right: 1px solid #000;*/
     width: 100%;
 }
 .description {
     padding: 10px 10px 0px 10px;
     text-align: justify;
     overflow: hidden;
-    /*background-color: rgba(0,0,0,.1)*/
 }
 .spacer {
     display: flex;
