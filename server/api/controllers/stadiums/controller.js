@@ -19,7 +19,6 @@ export default class Stadiums {
   ballpark(req, res) {
     BallparksService
       .byId(req.params.id)
-      //.flatMap(Stadiums._mergeBallparkWithDBpediaAndWeather)
       .subscribe(::res.json, ::res.send);
   }
 
@@ -30,5 +29,10 @@ export default class Stadiums {
       limit: req.query.limit
     })
     .subscribe(::res.json, ::res.send);
+  }
+
+  sparql(req, res) {
+    DBpediaService.sparql(req.body)
+      .subscribe(::res.json, ::res.send);
   }
 }

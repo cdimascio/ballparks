@@ -11,13 +11,14 @@ class Card extends Component {
 
   render() {
     const { front, back } = this.props;
+    const style = { width: this.props.width, height: this.props.height };
     return (
-      <div className="card scene3D">
-        <div className={this.state.flip ? 'flip rotate' : 'flip'} onClick={this.handleClick.bind(this)}>
-          <section card="">
+      <div className="card scene3D" style={style}>
+        <div className={this.state.flip ? 'flip rotate' : 'flip'} onClick={this.handleClick.bind(this)} style={style}>
+          <section card="" style={style}>
             {back}
           </section>
-          <section card="">
+          <section card="" style={style}>
             {front}
           </section>
         </div>

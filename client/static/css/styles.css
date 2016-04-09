@@ -1,0 +1,11 @@
+body {
+    background-color: #464646;
+    padding-top: 60px;
+}
+
+.card-container {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}

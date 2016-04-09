@@ -17,8 +17,8 @@ class BallparksService {
           ._withDetail(park.name)
           .map(r => {
             return {
-              ...park,
-              ...r
+              ...r,
+              ...park
             };
           });
       })
@@ -32,21 +32,23 @@ class BallparksService {
 
     return $ballparks
       .toArray()
-      .map(ballparks => ballparks[Number.parseInt(id)-1]);
+      .map(ballparks => ballparks[Number.parseInt(id) - 1]);
   }
 
   static _withDetail(name) {
-    //?park foaf:name "${name}"@en ;
     const query = `
+      PREFIX dbpedia2: <http://dbpedia.org/property/>
       PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
       PREFIX d: <http://dbpedia.org/ontology/>
 
       SELECT ?name ?thumb ?description ?openingDate WHERE {
               ?park rdfs:label "${name}"@en ;
-                    d:thumbnail ?thumb ;
                     d:abstract ?description ;
-                    foaf:isPrimaryTopicOf ?name ;
-                    d:openingDate ?openingDate .
+                    foaf:isPrimaryTopicOf ?name .
+                    OPTIONAL { ?park d:thumbnail ?thumb } .
+                    OPTIONAL { ?park dbpedia2:logoImage ?thumb } .
+                    OPTIONAL { ?park d:openingDate ?openingDate }.
+                    OPTIONAL { ?park dbpedia2:opened ?openingDate }.
           FILTER ( lang(?description) = "en")
       }
     `;
@@ -63,7 +65,7 @@ class BallparksService {
             thumb: b ? b.thumb.value : null
           },
           description: b ? b.description.value : null,
-          openingDate: b ? b.openingDate.value : null
+          openingDate: b && b.openingDate ? b.openingDate.value : null
         };
       });
   }

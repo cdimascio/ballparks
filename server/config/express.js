@@ -9,26 +9,20 @@ const config = Env.getConf();
 class Express {
   static init(app) {
     app.set('appPath', config.root + 'client');
+    //app.use(function(req, res, next){
+    //  if (req.is('text/*')) {
+    //    req.text = '';
+    //    req.setEncoding('utf8');
+    //    req.on('data', function(chunk){ req.text += chunk });
+    //    req.on('end', next);
+    //  } else {
+    //    next();
+    //  }
+    //});
+    app.use(bodyParser.text());
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: true}));
     app.use(cookieParser(config.sessionSecret));
-    //app.use(express.static(config.root + '/client/'));
-
-
-    //if (config.nodeEnv !== 'production') {
-    //  console.log('install dev middleware',webpackConfig.output.publicPath);
-    //  var compiler = webpack(webpackConfig);
-    //  app.use(require('webpack-dev-middleware')(compiler, {
-    //    noInfo: true,
-    //    publicPath: webpackConfig.output.publicPath
-    //  }));
-    //  app.use(require('webpack-hot-middleware')(compiler));
-    //  //  , {
-    //  //  log: console.log, path: '/__webpack_hmr', heartbeat: 10 * 1000
-    //  //}));
-    //} else {
-    //  app.use('/static', express.static(path.join(__dirname, '/client/dist')));
-    //}
 
     (function() {
 

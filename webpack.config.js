@@ -31,6 +31,11 @@ module.exports = {
     {
       test: /\.css$/,
       loaders: ['style', 'css' ]
+    },
+    {
+      test: /\.(png|jpg|gif|svg)$/,
+      loader: 'file-loader?name=[path][name].[ext]',
+      //exclude: [/fontawesome.*$/i]
     }]
   },
   plugins: [

@@ -5,7 +5,10 @@
     "wikiName": "AT&T_Park",
     "lat": 37.77861,
     "long": -122.38917,
-    "team": "San Francisco Giants"
+    "team": "San Francisco Giants",
+    "image": {
+      "thumb": "http://wonderfest.org/wp-content/uploads/2012/10/att-park.jpg"
+    }
   },
   {
     "id": "2",
