@@ -32,12 +32,11 @@ const ParkCardBack = ({
         </Tab>
         <Tab title={'Links'} selected={false}>
           <div>
-            <h4>Links</h4>
             {
               park.links
                 .filter(filterLinks)
                 .map(link => (
-                  <div key={link}><a href={`${link}`}>{extractNameFromLink(link)}</a></div>
+                  <div key={link}><a href={`${link}`} target='_blank' onClick={e => e.stopPropagation()}>{extractNameFromLink(link)}</a></div>
                 ))
             }
           </div>

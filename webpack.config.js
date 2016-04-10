@@ -1,6 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
-module.exports = {
+var devConfig = {
   context: __dirname,
   entry: [
     // Add the client which connects to our middleware
@@ -48,3 +48,28 @@ module.exports = {
     extensions: ['', '.js', '.jsx']
   }
 };
+
+
+if (process.env.NODE_ENV === 'production') {
+
+  devConfig.entry = [
+    './client/src/index'
+  ];
+
+  devConfig.plugins = [
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        warnings: false
+      }
+    })
+  ];
+  delete devConfig.devtool;
+}
+module.exports = devConfig;

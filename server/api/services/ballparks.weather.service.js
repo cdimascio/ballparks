@@ -22,15 +22,14 @@ class BallparksWeatherService {
   start() {
     return Rx.Observable
       .timer(0, INTERVAL)
-      .flatMap(() => this._fakedata());
-      //.flatMap(() => this._update());
+      //.flatMap(() => this._fakedata());
+      .flatMap(() => this._update());
   }
 
   _update() {
     console.log('update weather data');
     return BallparksService
       .all()
-      //.take(2)
       .flatMap(park => {
         return WeatherService.current({
           lat: park.lat,
