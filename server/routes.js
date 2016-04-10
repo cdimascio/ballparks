@@ -9,6 +9,5 @@ export default class Routes {
                  e => console.log('failed to update park weather: ', e));
 
     app.use('/api/v1/baseball',new StadiumsRoutes().init());
-
   }
 }

@@ -1,10 +1,8 @@
 import App from '../../../config';
-//import dps from 'dbpedia-sparql-client';
 import ballbarks from '../../../data/ballparks.json'
 import BallparksService from '../../services/ballparks.service';
 import BallparksWeatherService from '../../services/ballparks.weather.service';
 import DBpediaService from '../../services/dbpedia.service';
-import WeatherService from '../../services/weather.service';
 
 export default class Stadiums {
   constructor() {}

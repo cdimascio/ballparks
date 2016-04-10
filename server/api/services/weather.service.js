@@ -1,6 +1,6 @@
 import Rx from 'rx';
 import rp from 'request-promise';
-const apiRoot = 'https://bbc58657-5560-4a77-af8e-2f1a58100eac:vyGyxlP4FF@twcservice.mybluemix.net/api/weather/v2/';
+const apiRoot = process.env.WEATHER_API_ROOT;
 
 class WeatherService {
   current({units, lat, lon, lang}) {

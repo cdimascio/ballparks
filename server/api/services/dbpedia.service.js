@@ -13,7 +13,6 @@ class DBpediaService {
       QueryString: query,
       MaxHits: limit || 5
     };
-    //http://lookup.dbpedia.org/api/search.asmx/KeywordSearch?QueryClass=stadium&QueryString=CHICAGO&MaxHits=5
     return Rx.Observable.fromPromise(rp({
       method: 'GET',
       uri: 'http://lookup.dbpedia.org/api/search.asmx/KeywordSearch',
@@ -26,7 +25,6 @@ class DBpediaService {
   }
 
   sparql(query) {
-    //var query = 'SELECT DISTINCT ?Concept WHERE {[] a ?Concept} LIMIT 10';
     return Rx.Observable.fromPromise(dps
       .client()
       .query(query)

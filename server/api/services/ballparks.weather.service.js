@@ -22,7 +22,7 @@ class BallparksWeatherService {
   start() {
     return Rx.Observable
       .timer(0, INTERVAL)
-      //.flatMap(() => this._fakedata());
+      //.flatMap(() => this._fakedata()); // TODO apply based on NODE_ENV
       .flatMap(() => this._update());
   }
 
