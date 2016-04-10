@@ -41,7 +41,10 @@ var devConfig = {
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new webpack.ProvidePlugin({
+      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+    })
   ],
   resolve: {
     modulesDirectories: ['node_modules', 'bower_components'],
@@ -62,6 +65,9 @@ if (process.env.NODE_ENV === 'production') {
       'process.env': {
         'NODE_ENV': JSON.stringify('production')
       }
+    }),
+    new webpack.ProvidePlugin({
+      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
     }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({

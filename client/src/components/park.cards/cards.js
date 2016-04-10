@@ -12,7 +12,7 @@ const Cards = ({
   }) => {
   const {ballparks: parks, isFetching} = ballparks;
   return isFetching ? <div>loading</div> : (
-    <div className="card-container">
+    <div className="park-cards-container">
       {
         parks.map(park =>
           <Card key={park.name} width={350} height={600}

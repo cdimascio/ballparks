@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <div className="container-fluid">
+        <div>
           <Cards />
         </div>
       </div>);

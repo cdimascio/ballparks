@@ -28,7 +28,7 @@ class Tabs extends Component {
         <div className="tabs-container">
           {
             this.props.children.map(tab => (
-              <div className={`tabs-button ${tab === this.props.children[selectedIndex] ? ' active' : ''}`} onClick={e => this.handleClick(e,tab)}>
+              <div key={tab.props.title} className={`tabs-button ${tab === this.props.children[selectedIndex] ? ' active' : ''}`} onClick={e => this.handleClick(e,tab)}>
                 <h4>{tab.props.title}</h4>
               </div>
             ))

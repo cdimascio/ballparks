@@ -9,10 +9,11 @@ const ParkCardFront = ({
   }) => {
   const dHeight = height - 300;// - 30;
   return (
-    <div className="fcontainer">
+    <div className="front-container">
       <div className="image" style={{
         margin: '0px 0px 0px 0px',
-        height: height ? `${imageHeight}` : '300px',
+        height: height ? `${imageHeight}px` : '300px',
+        //width: width ? `${width}px` : '350px',
         'background-image': `url(${park.image.thumb})`,
         'background-size': 'cover',
         'background-repeat': 'no-repeat',
