@@ -2,3 +2,5 @@
 notes.txt
 vcap.json
 node_modules
+*.DELETE
+*.DELETEME

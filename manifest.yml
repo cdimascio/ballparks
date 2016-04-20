@@ -1,0 +1,11 @@
+---
+applications:
+- name: ballparks
+  memory: 256M
+  instances: 1
+  host: ballparks
+  domain: mybluemix.net
+  env:
+    NODE_ENV: production
+  services:
+  - Insights for Weather-tm

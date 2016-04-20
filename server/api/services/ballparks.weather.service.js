@@ -2,7 +2,7 @@ import Rx from 'rx';
 import BallparksService from '../services/ballparks.service';
 import WeatherService from '../services/weather.service';
 
-const INTERVAL = 1000 * 60 * 60;
+const INTERVAL = 1000 * 60 * 60 * 1.5;
 
 const _cache = {};
 class BallparksWeatherService {
