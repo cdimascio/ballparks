@@ -8,4 +8,4 @@ applications:
   env:
     NODE_ENV: production
   services:
-  - Insights for Weather-tm
+  - Weather Company Data for IBM Bluemix-rd

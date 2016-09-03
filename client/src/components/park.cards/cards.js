@@ -1,11 +1,8 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as ballparksActions from '../../actions/ballparks.actions';
-import Card from '../card/card';
-import ParkCardFront from '../park.card/front';
-import ParkCardBack from '../park.card/back';
-import './cards.css';
+import React, {Component} from "react";
+import Card from "../card/card";
+import ParkCardFront from "../park.card/front";
+import ParkCardBack from "../park.card/back";
+import "./cards.css";
 
 const Cards = ({
   ballparks

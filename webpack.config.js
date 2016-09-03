@@ -12,17 +12,22 @@ var devConfig = {
     './client/src/index'
   ],
   output: {
-    //path: path.join(__dirname, 'client/dist'),
+    path: path.join(__dirname, 'client/dist'),
     path: __dirname,
-    publicPath: '/',
+    publicPath: 'http://localhost:3000/',
     filename: './client/dist/bundle.js'
   },
   devtool: '#source-map',
   module: {
-    loaders: [{
+    loaders: [
+      {
       test: /\.js?/,
       loaders: ['babel'],
       include: path.join(__dirname, 'client/src')
+    },
+    {
+      test: /\.json$/,
+      loader: "json-loader"
     },
     {
       test: /\.scss?/,
