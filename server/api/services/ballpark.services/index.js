@@ -6,7 +6,7 @@ import RxBaseballServices from './rx-ballparks-services';
 const rbs = RxBaseballServices({
   weather: {
     apiRoot: Config.getConf().weatherApiRoot,
-    useMockData: true
+    useMockData: false
   }
 });
 
