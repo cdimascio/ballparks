@@ -1,10 +1,12 @@
-import Config from '../../config';
-import RxBaseballServices from 'rx-ballpark-services';
+import Config from '../../../config';
+// import RxBaseballServices from 'rx-ballpark-services';
+// Bringing in code locally for the convenience of this example
+import RxBaseballServices from './rx-ballparks-services';
 
 const rbs = RxBaseballServices({
   weather: {
     apiRoot: Config.getConf().weatherApiRoot,
-    useMockData: false
+    useMockData: true
   }
 });
 
@@ -16,4 +18,3 @@ const BaseballServices = {
 };
 
 export default BaseballServices;
-

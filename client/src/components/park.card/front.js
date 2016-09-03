@@ -28,14 +28,14 @@ const ParkCardFront = ({
           <div className="weather-top">
             <div className="weather-image">
               <img className="media-object weather-current-icon"
-                   src={`images/twc/icon${park.weather.observation.icon_code}.png`}/>
+                   src={`images/twc/icon${park.weather.observation.wx_icon}.png`}/>
             </div>
             <div className="weather-temp">
-              {park.weather.observation.imperial.temp}° F
+              {park.weather.observation.temp}° F
             </div>
           </div>
           <div className="weather-phrase">
-            {park.weather.observation.phrase_32char}
+            {park.weather.wx_phrase}
           </div>
         </div>
       </div>
