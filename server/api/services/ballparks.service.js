@@ -65,7 +65,7 @@ class BallparksService {
         return {
           wikipediaUrl: b ? b.name.value : null,
           image: {
-            thumb: b ? b.thumb.value : null
+            thumb: b && b.thumb? b.thumb.value : null
           },
           description: b ? b.description.value : null,
           comment: b ? b.comment.value : null,

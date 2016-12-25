@@ -51,6 +51,7 @@ export default class BallparksWeatherService {
 
   _fakedata() {
     console.log('fake weather data');
+
     const fakeData = {
       'metadata': {
         'language': 'en-US',
