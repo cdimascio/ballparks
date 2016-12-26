@@ -14,10 +14,10 @@ const ParkCardFront = ({
         margin: '0px 0px 0px 0px',
         height: height ? `${imageHeight}px` : '300px',
         //width: width ? `${width}px` : '350px',
-        'background-image': `url(${park.image.thumb})`,
-        'background-size': 'cover',
-        'background-repeat': 'no-repeat',
-        'background-position': 'center'
+        'backgroundImage': `url(${park.image.thumb})`,
+        'backgroundXize': 'cover',
+        'backgroundRepeat': 'no-repeat',
+        'backgroundPosition': 'center'
       }}>
         <div className="spacer"></div>
         <h4 className="name">{park.name}</h4>
