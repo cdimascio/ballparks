@@ -15,7 +15,7 @@ const ParkCardFront = ({
         height: height ? `${imageHeight}px` : '300px',
         //width: width ? `${width}px` : '350px',
         'backgroundImage': `url(${park.image.thumb})`,
-        'backgroundXize': 'cover',
+        'backgroundSize': 'cover',
         'backgroundRepeat': 'no-repeat',
         'backgroundPosition': 'center'
       }}>
