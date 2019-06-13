@@ -2,6 +2,8 @@
 
 Ballparks provides up to date weather information for all Major League Ballparks. It utilizes DBpedia, IBM Weather Company's Weather Insights, and Bluemix.
 
+Try the [app](http://ballparks.mybluemix.net/)
+
 ### Prerequisites
 - Create an IBM Insight's for Weather service on Bluemix
 
